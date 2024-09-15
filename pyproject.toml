@@ -1,19 +1,23 @@
 [tool.poetry]
-name = "airflow-provider-hbase"
-version = "0.1.0"
-description = "apache airflow hbase provider"
-authors = ["Kyeongseo Oh <kyeongseo96@gmail.com>"]
-readme = "README.md"
-packages = [{include = "airflow_provider_hbase"}]
+# 프로젝트의 메타데이터를 정의하는 섹션
+name = "airflow-provider-hbase"  # 패키지의 이름
+version = "0.1.0"  # 패키지의 버전
+description = ""  # 패키지에 대한 간단한 설명 (필요시 추가)
+authors = ["Kyeongseo Oh <kyeongseo96@gmail.com>"]  # 작성자 정보
+readme = "README.md"  # README 파일의 위치
+packages = [{include = "airflow_provider_hbase"}] # 패키지에 포함될 Python 모듈
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13"
+# 프로젝트의 런타임 의존성을 정의하는 섹션
+python = ">=3.8,<3.13"  # 지원하는 Python 버전 범위
 apache-airflow = "^2.0" # apache-airflow 의존성 추가
 happybase = "^1.0.0"    # happybase 의존성 추가
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+# 빌드 시스템 요구사항을 지정하는 섹션
+requires = ["poetry-core"]  # 필요한 빌드 시스템 (poetry-core 사용)
+build-backend = "poetry.core.masonry.api"  # 사용할 빌드 백엔드
 
 [tool.poetry.plugins."apache_airflow_provider"]
-provider_info = "airflow_provider_hbase.__init__:get_provider_info"
+# Airflow provider 플러그인 설정
+provider_info = "airflow_provider_hbase.__init__:get_provider_info" # provider_info 함수의 위치
