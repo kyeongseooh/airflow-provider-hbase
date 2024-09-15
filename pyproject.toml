@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "airflow-provider-hbase"
+version = "0.1.0"
+description = "apache airflow hbase provider"
+authors = ["Kyeongseo Oh <kyeongseo96@gmail.com>"]
+readme = "README.md"
+packages = [{include = "airflow_provider_hbase"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+apache-airflow = "^2.0" # apache-airflow 의존성 추가
+happybase = "^1.0.0"    # happybase 의존성 추가
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."apache_airflow_provider"]
+provider_info = "airflow_provider_hbase.__init__:get_provider_info"
